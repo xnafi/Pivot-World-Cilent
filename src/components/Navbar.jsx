@@ -10,7 +10,7 @@ const Navbar = () => {
 
     return (
 
-        <div className='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-8 '>
+        <div className='px-4 py-5 w-screen md:px-8 absolute z-20 top-0 '>
             <div className='relative flex items-center justify-between'>
                 <Link
                     to='/'
@@ -27,7 +27,7 @@ const Navbar = () => {
                             aria-label='Home'
                             title='Home'
                             className={({ isActive }) =>
-                                isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
                             }
                         >
                             Home
@@ -39,7 +39,7 @@ const Navbar = () => {
                             aria-label='Courses'
                             title='Courses'
                             className={({ isActive }) =>
-                                isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
                             }
                         >
                             Courses
@@ -52,7 +52,7 @@ const Navbar = () => {
                             aria-label='FAQ'
                             title='FAQ'
                             className={({ isActive }) =>
-                                isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
                             }
                         >
                             FAQ
@@ -64,7 +64,7 @@ const Navbar = () => {
                             aria-label='Login'
                             title='Login'
                             className={({ isActive }) =>
-                                isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
                             }
                         >
                             Login
@@ -76,7 +76,7 @@ const Navbar = () => {
                             aria-label='Sign up'
                             title='Sign up'
                             className={({ isActive }) =>
-                                isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
                             }
                         >
                             Sign up
@@ -88,7 +88,7 @@ const Navbar = () => {
                             aria-label='profile'
                             title='profile'
                             className={({ isActive }) =>
-                                isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
                             }
                         >
                             Profile
