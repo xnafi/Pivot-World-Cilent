@@ -1,13 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Switch } from '@headlessui/react'
 import { Link, NavLink } from 'react-router-dom'
-
+import Swal from 'sweetalert2'
 import logo from '../assets/images/pivotLogo.png';
+import { AuthContext } from '../contex/AuthProvider';
 
 const Navbar = () => {
-
+    const { user, logOut } = useContext(AuthContext)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [enabled, setEnabled] = useState(false)
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                Swal.fire('logout successful')
+            }).catch((error) => {
+                console.log(error);
+            });
+    }
 
     return (
 
@@ -59,30 +69,7 @@ const Navbar = () => {
                             FAQ
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink
-                            to='/login'
-                            aria-label='Login'
-                            title='Login'
-                            className={({ isActive }) =>
-                                isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
-                            }
-                        >
-                            Login
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
-                            to='/signup'
-                            aria-label='Sign up'
-                            title='Sign up'
-                            className={({ isActive }) =>
-                                isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
-                            }
-                        >
-                            Sign up
-                        </NavLink>
-                    </li>
+
                     <li>
                         <NavLink
                             to='/profile'
@@ -92,9 +79,49 @@ const Navbar = () => {
                                 isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
                             }
                         >
-                            Profile
+
+                            {user ? user.displayName : "Profile"}
                         </NavLink>
                     </li>
+                    {
+                        user ? <li>
+                            <NavLink
+                                onClick={handleLogout}
+                                to='/'
+                                className={({ isActive }) =>
+                                    isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                }
+                            >
+                                Logout
+                            </NavLink>
+                        </li> :
+                            <>
+                                <li>
+                                    <NavLink
+                                        to='/login'
+                                        aria-label='Login'
+                                        title='Login'
+                                        className={({ isActive }) =>
+                                            isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                        }
+                                    >
+                                        Login
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink
+                                        to='/signup'
+                                        aria-label='Sign up'
+                                        title='Sign up'
+                                        className={({ isActive }) =>
+                                            isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                        }
+                                    >
+                                        Sign up
+                                    </NavLink>
+                                </li>
+                            </>
+                    }
                     <li>
                         <Switch
                             checked={enabled}
