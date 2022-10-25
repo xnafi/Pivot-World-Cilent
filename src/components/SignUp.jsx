@@ -1,26 +1,75 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../contex/AuthProvider'
+import Swal from 'sweetalert2'
+import { getAuth, updateProfile } from 'firebase/auth'
+import { app } from '../firebase/firebase.init'
+
+const auth = getAuth(app)
 
 const SignUp = () => {
-    const [error, setError] = useState(false)
+    const { signUpNewUser, varifyEmail, setUserId, user } = useContext(AuthContext)
 
-    const handleSubmit = () => {
+    const [error, setError] = useState('')
 
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        const form = event.target
+        const name = form.name.value
+        const email = form.email.value
+        const password = form.password.value
+        if (!/^\S+@\S+\.\S+$/.test(email)) {
+            return setError('please enter a valid email')
+        }
+        if (!/(?=.*?[A-Z])/.test(password)) {
+            return setError('add at least one upper case in password')
+        }
+        if (!/(?=.*?[a-z])/.test(password)) {
+            return setError('add at least one lower case in password')
+        }
+        if (!/(?=.*?[#?!@$%^&*-])/.test(password)) {
+            return setError('add at least one special character in password')
+        }
+        if (!/.{8,}/.test(password)) {
+            return setError('password 8 character or more in password')
+        }
+        signUpNewUser(email, password)
+            .then(res => {
+                setError('')
+                varifyEmail()
+                    .then(() => {
+
+                        Swal.fire(
+                            'Good job!',
+                            'A varificition email has been send to your email !',
+                            'success'
+                        )
+                        updateProfile(auth.currentUser, {
+                            displayName: name
+                        })
+
+                    })
+
+            })
+            .catch(error => setError(error.message))
     }
-
+    console.log('====================================');
+    console.log(user);
+    console.log('====================================');
     const loginWithGoogle = () => {
 
     }
 
+
     return (
         <div className="bg-white dark:bg-gray-900 h-full w-full px-8 bgSignup bg-center bg-fixed bg-cover bg-no-repeat flex flex-col md:flex-row justify-center items-center" >
             <div className='flex justify-center items-center pt-8  mt-32 my-4'>
-                <small>{error}</small>
                 <div className='flex flex-col max-w-md rounded-md px-8 py-3  bg-gray-100 text-gray-900'>
-                    <div className='mb-8 text-center'>
+                    <div className='mb-2 text-center'>
                         <h1 className='my-3 text-4xl font-bold'>Register</h1>
                         <p className='text-sm text-gray-400'>Create a new account</p>
                     </div>
+                    <small className='font-bold text-red-900 my-4 text-center animate-pulse text-lg'>{error}</small>
                     <form
                         onSubmit={handleSubmit}
                         noValidate=''
@@ -121,7 +170,7 @@ const SignUp = () => {
                     </div>
                     <p className='px-6 text-sm text-center text-gray-400'>
                         Already have an account yet?
-                        <Link to='/register' className='hover:underline text-gray-600'>
+                        <Link to='/login' className='hover:underline text-gray-600'>
                             Sign In
                         </Link>
                         .
