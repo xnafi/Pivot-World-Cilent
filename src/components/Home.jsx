@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { TypeAnimation } from 'react-type-animation';
 import { FaFoursquare } from "react-icons/fa"
 import bannar from '../assets/images/homeBg.jpg'
+import { AuthContext } from '../contex/AuthProvider';
 
 const Home = () => {
+    const user = useContext(AuthContext)
+    console.log(user);
     return (
         <header className="bg-white dark:bg-gray-900 h-full md:h-screen w-full px-8 bgSet bg-center bg-fixed bg-cover bg-no-repeat flex flex-col md:flex-row">
             <div className='flex flex-col justify-center text-white w-full h-full pl-20'>

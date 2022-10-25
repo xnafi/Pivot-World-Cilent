@@ -4,13 +4,13 @@ import logo from '../assets/images/pivotLogo.png'
 
 const Footer = () => {
     return (
-        <footer className="flex flex-col items-center w-full bg-slate-500 justify-between p-7 footerBg sm:flex-row px-8 absolute -bottom-16 lg:-bottom-20 ">
+        <footer className="flex flex-col items-center w-full bg-slate-500 justify-between p-7 footerBg sm:flex-row px-8">
             <Link to="/" className="text-xl font-bold text-white transition-colors duration-300 dark:text-white hover:text-gray-700 dark:hover:text-gray-300"><img className='w-14' src={logo} alt="logo" /></Link>
 
             <p className="text-sm text-white dark:text-gray-300">© Copyright 2021. All Rights Reserved Pivot.</p>
 
             <div className="flex -mx-2">
-                <a href="#" className="mx-2 text-white transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Reddit">
+                <a href="" className="mx-2 text-white transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Reddit">
                     <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -19,7 +19,7 @@ const Footer = () => {
                     </svg>
                 </a>
 
-                <a href="#" className="mx-2 text-white transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Facebook">
+                <a href="" className="mx-2 text-white transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Facebook">
                     <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -28,7 +28,7 @@ const Footer = () => {
                     </svg>
                 </a>
 
-                <a href="#" className="mx-2 text-white transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Github">
+                <a href="" className="mx-2 text-white transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Github">
                     <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
