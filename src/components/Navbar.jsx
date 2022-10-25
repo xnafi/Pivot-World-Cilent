@@ -10,7 +10,7 @@ const Navbar = () => {
 
     return (
 
-        <div className='px-4 py-5 w-screen md:px-8 absolute z-20 top-0 '>
+        <div className='sm:px-4 py-5 w-full md:px-14 absolute z-20 top-0 '>
             <div className='relative flex items-center justify-between'>
                 <Link
                     to='/'
@@ -18,7 +18,7 @@ const Navbar = () => {
                     title='Pivot home'
                     className='inline-flex items-center'
                 >
-                    <img src={logo} className='w-20 md:w-32' alt='pivot logo' />
+                    <img src={logo} className='w-20 md:w-32 bg-yellow-50 px-3 py-1 rounded-xl' alt='pivot logo' />
                 </Link>
                 <ul className='items-center hidden space-x-8 lg:flex'>
                     <li>
