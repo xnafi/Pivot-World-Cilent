@@ -1,15 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { FaUserAlt } from 'react-icons/fa'
+import { AuthContext } from '../contex/AuthProvider'
 
 const Profile = () => {
+
+  const { user } = useContext(AuthContext)
+
   return (
 
     <div className="bg-white dark:bg-gray-900 h-screen md:h-screen w-full px-8 bgProfile bg-center bg-fixed bg-cover bg-no-repeat flex flex-col md:flex-row justify-center items-center" >
       <div className="flex flex-col justify-center max-w-xs bg-white p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100 mx-auto mt-20">
-        <img src="https://source.unsplash.com/150x150/?portrait?3" alt="" className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
+        {
+          user ? <img src={user.photoURL} alt="" className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square" /> : <FaUserAlt></FaUserAlt>
+        }
+
         <div className="space-y-4 text-center divide-y divide-gray-700">
           <div className="my-2 space-y-1">
-            <h2 className="text-xl font-semibold sm:text-2xl">Leroy Jenkins</h2>
-            <p className="px-5 text-xs sm:text-base dark:text-gray-400">Full-stack developer</p>
+            <h2 className="text-xl font-semibold sm:text-2xl">{user ? user.displayName : 'Name not upadated yet'}</h2>
+            <p className="px-5 text-xs sm:text-base dark:text-gray-400">{user ? 'Email varified' : 'Please varify your email'}</p>
           </div>
           <div className="flex justify-center pt-2 space-x-4 align-center">
             <a rel="noopener noreferrer" href="#" aria-label="GitHub" className="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">

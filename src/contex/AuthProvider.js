@@ -30,8 +30,12 @@ const AuthProvider = ({ children }) => {
     }
 
     // logout user
-    const logOut =()=>{
+    const logOut = () => {
         return signOut(auth)
+    }
+
+    const socialAccountLogin = (provider) => {
+        return signInWithPopup(auth, provider)
     }
 
     // get user information
@@ -45,9 +49,7 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
     // google and github SignIn 
-    const socialAccountLogin = (provider) => {
-        return signInWithPopup(auth, provider)
-    }
+
 
 
 

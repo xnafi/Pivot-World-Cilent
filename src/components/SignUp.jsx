@@ -18,6 +18,7 @@ const SignUp = () => {
         event.preventDefault()
         const form = event.target
         const name = form.name.value
+        const photo = form.photo.value
         const email = form.email.value
         const password = form.password.value
         if (!/^\S+@\S+\.\S+$/.test(email)) {
@@ -47,7 +48,7 @@ const SignUp = () => {
                             'success'
                         )
                         updateProfile(auth.currentUser, {
-                            displayName: name
+                            displayName: name, photoURL: photo
                         })
 
                     })
@@ -98,6 +99,19 @@ const SignUp = () => {
                                     name='name'
                                     id='name'
                                     placeholder='Enter Your Name Here'
+                                    className='w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900'
+                                    data-temp-mail-org='0'
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor='email' className='block mb-2 text-sm'>
+                                    Photo Url
+                                </label>
+                                <input
+                                    type='text'
+                                    name='photo'
+                                    id='photo'
+                                    placeholder='Paste your photo link'
                                     className='w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900'
                                     data-temp-mail-org='0'
                                 />

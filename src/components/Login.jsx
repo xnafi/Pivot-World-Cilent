@@ -22,7 +22,10 @@ const Login = () => {
                 setError('')
                 form.reset()
             })
-            .catch(error => setError(error.message))
+            .catch(error => {
+                setError(error.message)
+                console.error(error.message);
+            })
     }
 
     const loginWithGoogle = () => {
@@ -48,7 +51,7 @@ const Login = () => {
                     <p className="text-sm dark:text-gray-400">Login to access your account</p>
                 </div>
                 <small className='font-bold text-red-900 my-4 text-center animate-pulse text-lg'>{error}</small>
-                <form novalidate="" action="" className="space-y-8 ng-untouched ng-pristine ng-valid">
+                <form onSubmit={handleSubmit} novalidate="" action="" className="space-y-8 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-4">
                         <div>
                             <label for="email" className="block mb-2 text-sm">Email address</label>
@@ -64,7 +67,7 @@ const Login = () => {
                     </div>
                     <div className="space-y-2">
                         <div>
-                            <button type="button" className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900 btn btn-outline btn-primary">Login</button>
+                            <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900 btn btn-outline btn-primary">Login</button>
                         </div>
 
                     </div>

@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import logo from '../assets/images/pivotLogo.png';
 import { AuthContext } from '../contex/AuthProvider';
+import { FaUserAlt } from 'react-icons/fa';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -18,7 +19,9 @@ const Navbar = () => {
                 console.log(error);
             });
     }
-
+    console.log('====================================');
+    console.log(user);
+    console.log('====================================');
     return (
 
         <div className='sm:px-4 py-5 w-full md:px-14 absolute z-20 top-0 '>
@@ -70,19 +73,23 @@ const Navbar = () => {
                         </NavLink>
                     </li>
 
-                    <li>
-                        <NavLink
-                            to='/profile'
-                            aria-label='profile'
-                            title='profile'
-                            className={({ isActive }) =>
-                                isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
-                            }
-                        >
+                    {
+                        user && <li>
+                            <NavLink
+                                to='/profile'
+                                aria-label='profile'
+                                title={user?.displayName}
+                                className={({ isActive }) =>
+                                    isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                }
+                            >
 
-                            {user ? user.displayName : "Profile"}
-                        </NavLink>
-                    </li>
+                                {
+                                    user ? <img src={user.photoURL} alt="" className="w-14 mx-auto rounded-full dark:bg-gray-500 aspect-square" /> : <FaUserAlt></FaUserAlt>
+                                }
+                            </NavLink>
+                        </li>
+                    }
                     {
                         user ? <li>
                             <NavLink
