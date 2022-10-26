@@ -42,7 +42,6 @@ const SignUp = () => {
                 setError('')
                 varifyEmail()
                     .then(() => {
-
                         toast('A varificition email has been send to your email !', {
                             position: "top-center",
                             autoClose: 5000,
@@ -101,7 +100,7 @@ const SignUp = () => {
 
 
     return (
-        <div className="bg-white dark:bg-gray-900 h-full w-full px-8 bgSignup bg-center bg-fixed bg-cover bg-no-repeat flex flex-col md:flex-row justify-center items-center" >
+        <div className="bg-white dark:bg-gray-900 h-full md:h-full md:w-full w-screen bgSignup bg-center bg-fixed bg-cover bg-no-repeat flex flex-col md:flex-row justify-center items-center" >
             <div className='flex justify-center items-center pt-8  mt-32 my-4'>
                 <div className='flex flex-col max-w-md rounded-md px-8 py-3  bg-gray-100 text-gray-900'>
                     <div className='mb-2 text-center'>

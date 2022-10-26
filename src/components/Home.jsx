@@ -9,7 +9,7 @@ const Home = () => {
     const user = useContext(AuthContext)
     console.log(user);
     return (
-        <header className="bg-white dark:bg-gray-900 h-full md:h-screen w-full px-8 bgSet bg-center bg-fixed bg-cover bg-no-repeat flex flex-col md:flex-row">
+        <header className="bg-white dark:bg-gray-900 h-full md:h-screen md:w-full w-screen md:px-12 px-4 bgSet bg-center bg-fixed bg-cover bg-no-repeat flex flex-col md:flex-row">
             <div className='flex flex-col justify-center text-white w-full h-full xl:pl-10 md:pl-6 mt-24 md:mt-0'>
                 <small className='text-xs font-bold text-left left-40'>25 year's of experience in web design soulations</small>
                 <h1 className='xl:text-6xl md:4xl text-4xl font-bold text-left'>

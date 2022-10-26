@@ -57,6 +57,7 @@ const Login = () => {
                     progress: undefined,
                     theme: "light",
                 });
+                navigate(from, { replace: true })
             })
             .catch(error => console.log(error))
     }
@@ -73,13 +74,14 @@ const Login = () => {
                     progress: undefined,
                     theme: "light",
                 });
+                navigate(from, { replace: true })
             })
             .catch(error => console.error(error))
     }
 
     return (
-        <div className="bg-white dark:bg-gray-900 h-full md:h-full w-full px-8 bgLogin bg-center bg-fixed bg-cover bg-no-repeat flex flex-col md:flex-row justify-center items-center" >
-            <div className="flex bg-white flex-col max-w-md p-6 rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100 mt-32 my-4">
+        <div className="bg-white dark:bg-gray-900 h-full md:h-full md:w-full w-screen bgLogin bg-center bg-fixed bg-cover bg-no-repeat flex flex-col md:flex-row justify-center items-center" >
+            <div className="flex bg-white flex-col w-auto p-6 rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100 mt-32 my-4">
                 <div className="mb-8 text-center">
                     <h1 className="my-3 text-4xl font-bold">Login</h1>
                     <p className="text-sm dark:text-gray-400">Login to access your account</p>

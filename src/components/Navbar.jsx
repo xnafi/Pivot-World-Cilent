@@ -82,14 +82,14 @@ const Navbar = () => {
                     </li>
                     <li>
                         <NavLink
-                            to='/about'
-                            aria-label='about'
-                            title='about'
+                            to='/blog'
+                            aria-label='blog'
+                            title='blog'
                             className={({ isActive }) =>
                                 isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
                             }
                         >
-                            About
+                            Blog
                         </NavLink>
                     </li>
 
@@ -114,10 +114,7 @@ const Navbar = () => {
                         user ? <li>
                             <NavLink
                                 onClick={handleLogout}
-                                to='/'
-                                className={({ isActive }) =>
-                                    isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
-                                }
+                                className='font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
                             >
                                 Logout
                             </NavLink>
@@ -260,24 +257,21 @@ const Navbar = () => {
 
                                         <li>
                                             <NavLink
-                                                to='/about'
-                                                aria-label='about'
-                                                title='about'
+                                                to='/blog'
+                                                aria-label='blog'
+                                                title='blog'
                                                 className={({ isActive }) =>
                                                     isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
                                                 }
                                             >
-                                                About
+                                                Blog
                                             </NavLink>
                                         </li>
                                         {
                                             user ? <li>
                                                 <NavLink
                                                     onClick={handleLogout}
-                                                    to='/'
-                                                    className={({ isActive }) =>
-                                                        isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
-                                                    }
+                                                    className='font-semibold hover:border-b-2 border-black tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
                                                 >
                                                     Logout
                                                 </NavLink>
