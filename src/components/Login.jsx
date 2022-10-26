@@ -1,7 +1,7 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth'
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { AuthContext } from '../contex/AuthProvider'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/AuthProvider'
 import { toast } from 'react-toastify';
 
 
@@ -12,6 +12,9 @@ const Login = () => {
     const { emailPasswordLogin, socialAccountLogin } = useContext(AuthContext)
     const GoogleProvider = new GoogleAuthProvider()
     const GithubProvider = new GithubAuthProvider()
+    const loction = useLocation()
+    const from = loction?.state?.from.pathname || '/'
+    const navigate = useNavigate()
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -21,6 +24,7 @@ const Login = () => {
         emailPasswordLogin(email, password)
             .then(res => {
                 setError('')
+                navigate(from, { replace: true })
                 form.reset()
                 toast('login successful', {
                     position: "top-center",

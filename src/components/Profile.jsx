@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { FaUserAlt } from 'react-icons/fa'
-import { AuthContext } from '../contex/AuthProvider'
+import { AuthContext } from '../context/AuthProvider'
 
 const Profile = () => {
 

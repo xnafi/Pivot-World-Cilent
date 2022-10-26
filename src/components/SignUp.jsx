@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { AuthContext } from '../contex/AuthProvider'
+import { AuthContext } from '../context/AuthProvider'
 import { toast,ToastContainer } from 'react-toastify';
 
 import { getAuth, GithubAuthProvider, GoogleAuthProvider, updateProfile } from 'firebase/auth'

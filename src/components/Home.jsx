@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { TypeAnimation } from 'react-type-animation';
 import { FaFoursquare } from "react-icons/fa"
 import bannar from '../assets/images/homeBg.jpg'
-import { AuthContext } from '../contex/AuthProvider';
+import { AuthContext } from '../context/AuthProvider';
 
 const Home = () => {
     const user = useContext(AuthContext)

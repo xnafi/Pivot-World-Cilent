@@ -5,22 +5,40 @@
 .bgSet {
   background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(107, 121, 9, 0) 0%, rgba(95, 94, 124, 1) 100%), url("./assets/images/rear-view-programmer-working-all-night-long.jpg");
 }
+
 .bgLogin {
   background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(107, 121, 9, 0) 0%, rgba(95, 94, 124, 1) 100%), url("./assets/images/login.jpg");
 }
+
 .bgSignup {
   background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(107, 121, 9, 0) 0%, rgba(95, 94, 124, 1) 100%), url("./assets/images/signup.jpg");
 }
+
 .bgProfile {
   background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(107, 121, 9, 0) 0%, rgba(95, 94, 124, 1) 100%), url("./assets/images/profile.jpg");
 }
+
 .bgCourse {
-  background: rgb(63,94,251);
-  background: radial-gradient(circle, rgba(63,94,251,1) 32%, rgba(95,227,32,0.9444152661064426) 89%);;
+  background: rgb(63, 94, 251);
+  background: radial-gradient(circle, rgba(63, 94, 251, 1) 32%, rgba(95, 227, 32, 0.9444152661064426) 89%);
+  ;
 }
-.bgCourses{
+
+.bgCourses {
   background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(107, 121, 9, 0) 0%, rgba(95, 94, 124, 1) 100%), url("./assets/images/courses2.jpg");
 }
+
+.bgPurchase {
+  background: rgb(12, 30, 122);
+  background: radial-gradient(circle, rgba(12, 30, 122, 1) 32%, rgba(95, 227, 32, 0.9444152661064426) 100%);
+}
+
+.bgFaq {
+  background-color: #D9AFD9;
+  background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+
+}
+
 .footerBg {
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(107,121,9,0) 0%, rgba(95,94,124,1) 100%);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(107, 121, 9, 0) 0%, rgba(95, 94, 124, 1) 100%);
 }

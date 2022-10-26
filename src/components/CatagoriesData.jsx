@@ -19,7 +19,7 @@ const CatagoriesData = ({ course }) => {
                     <div className="flex items-center">
                         <Link to={`/courses/details/${course.id}`} className="btn btn-outline btn-primary my-4 ml-3 px-4">Details</Link>
                     </div>
-                    <Link to={`/courses/details/${course.id}`} className="btn btn-outline btn-info my-4 ml-3 px-4">Get premium access</Link>
+                    <Link to={`/purchase/${course.id}`} className="btn btn-outline btn-info my-4 ml-3 px-4">Get premium access</Link>
                 </div>
             </div>
         </div>
