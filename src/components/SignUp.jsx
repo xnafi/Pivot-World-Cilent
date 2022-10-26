@@ -57,6 +57,7 @@ const SignUp = () => {
                         updateProfile(auth.currentUser, {
                             displayName: name, photoURL: photo
                         })
+                        form.reset()
 
                     })
 

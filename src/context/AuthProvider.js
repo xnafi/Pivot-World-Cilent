@@ -24,19 +24,16 @@ const AuthProvider = ({ children }) => {
 
     // update user name
     const setUserId = (profile) => {
-        setLoading(true)
         return updateProfile(auth, profile)
     }
 
     // email varificiton
     const varifyEmail = () => {
-        setLoading(true)
         return sendEmailVerification(auth.currentUser)
     }
 
     // logout user
     const logOut = () => {
-        setLoading(true)
         return signOut(auth)
     }
 

@@ -12,9 +12,9 @@ const Login = () => {
     const { emailPasswordLogin, socialAccountLogin } = useContext(AuthContext)
     const GoogleProvider = new GoogleAuthProvider()
     const GithubProvider = new GithubAuthProvider()
-    const loction = useLocation()
-    const from = loction?.state?.from.pathname || '/'
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const loaction = useLocation()
+    const from = loaction.state?.from?.pathname || '/'
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -24,7 +24,6 @@ const Login = () => {
         emailPasswordLogin(email, password)
             .then(res => {
                 setError('')
-                navigate(from, { replace: true })
                 form.reset()
                 toast('login successful', {
                     position: "top-center",
@@ -36,6 +35,7 @@ const Login = () => {
                     progress: undefined,
                     theme: "light",
                 });
+                navigate(from, { replace: true })
 
             })
             .catch(error => {
