@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Switch } from '@headlessui/react'
 import { Link, NavLink } from 'react-router-dom'
-import { toast,ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import logo from '../assets/images/pivotLogo.png';
 import { AuthContext } from '../contex/AuthProvider';
 import { FaUserAlt } from 'react-icons/fa';
@@ -24,7 +24,7 @@ const Navbar = () => {
                     progress: undefined,
                     theme: "light",
                 });
-               
+
             }).catch((error) => {
                 console.log(error);
             });
@@ -33,7 +33,7 @@ const Navbar = () => {
     return (
 
         <div className='sm:px-4 py-5 w-full md:px-14 absolute z-20 top-0 '>
-            <div className='relative flex items-center justify-between'>
+            <div className='relative flex items-center justify-between px-4'>
                 <Link
                     to='/'
                     aria-label='Pivot home'
@@ -109,7 +109,7 @@ const Navbar = () => {
                             >
                                 Logout
                             </NavLink>
-                            <ToastContainer/>
+                            <ToastContainer />
                         </li> :
                             <>
                                 <li>
@@ -245,42 +245,64 @@ const Navbar = () => {
                                                 FAQ
                                             </NavLink>
                                         </li>
-                                        <li>
-                                            <NavLink
-                                                to='/login'
-                                                aria-label='Login'
-                                                title='Login'
-                                                className={({ isActive }) =>
-                                                    isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-                                                }
-                                            >
-                                                Login
-                                            </NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink
-                                                to='/signup'
-                                                aria-label='Sign up'
-                                                title='Sign up'
-                                                className={({ isActive }) =>
-                                                    isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-                                                }
-                                            >
-                                                Sign up
-                                            </NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink
-                                                to='/profile'
-                                                aria-label='profile'
-                                                title='profile'
-                                                className={({ isActive }) =>
-                                                    isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-                                                }
-                                            >
-                                                Profile
-                                            </NavLink>
-                                        </li>
+                                        {
+                                            user ? <li>
+                                                <NavLink
+                                                    onClick={handleLogout}
+                                                    to='/'
+                                                    className={({ isActive }) =>
+                                                        isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                                    }
+                                                >
+                                                    Logout
+                                                </NavLink>
+                                                <ToastContainer />
+                                            </li> :
+                                                <>
+                                                    <li>
+                                                        <NavLink
+                                                            to='/login'
+                                                            aria-label='Login'
+                                                            title='Login'
+                                                            className={({ isActive }) =>
+                                                                isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                                            }
+                                                        >
+                                                            Login
+                                                        </NavLink>
+                                                    </li>
+                                                    <li>
+                                                        <NavLink
+                                                            to='/signup'
+                                                            aria-label='Sign up'
+                                                            title='Sign up'
+                                                            className={({ isActive }) =>
+                                                                isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                                            }
+                                                        >
+                                                            Sign up
+                                                        </NavLink>
+                                                    </li>
+                                                </>
+                                        }
+
+                                        {
+                                            user && <li>
+                                                <NavLink
+                                                    to='/profile'
+                                                    aria-label='profile'
+                                                    title={user?.displayName}
+                                                    className={({ isActive }) =>
+                                                        isActive ? 'font-bold border-b-2 border-black tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400 text-black' : 'font-semibold hover:border-b-2 border-black tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                                    }
+                                                >
+
+                                                    {
+                                                        user ? <img src={user.photoURL} alt="" className="w-14 mx-auto rounded-full dark:bg-gray-500 aspect-square" /> : <FaUserAlt></FaUserAlt>
+                                                    }
+                                                </NavLink>
+                                            </li>
+                                        }
                                     </ul>
                                 </nav>
                             </div>
