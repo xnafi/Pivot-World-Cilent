@@ -2,7 +2,8 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth'
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../contex/AuthProvider'
-import Swal from 'sweetalert2'
+import { toast } from 'react-toastify';
+
 
 
 
@@ -21,6 +22,17 @@ const Login = () => {
             .then(res => {
                 setError('')
                 form.reset()
+                toast('login successful', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+
             })
             .catch(error => {
                 setError(error.message)
@@ -31,14 +43,32 @@ const Login = () => {
     const loginWithGoogle = () => {
         socialAccountLogin(GoogleProvider)
             .then(res => {
-                Swal.fire('login successful')
+                toast('login successful', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             })
             .catch(error => console.log(error))
     }
     const loginWithGithub = () => {
         socialAccountLogin(GithubProvider)
             .then(res => {
-                Swal.fire('login successful')
+                toast('logout successful', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             })
             .catch(error => console.error(error))
     }

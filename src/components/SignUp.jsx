@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../contex/AuthProvider'
-import Swal from 'sweetalert2'
+import { toast,ToastContainer } from 'react-toastify';
+
 import { getAuth, GithubAuthProvider, GoogleAuthProvider, updateProfile } from 'firebase/auth'
 import { app } from '../firebase/firebase.init'
 
@@ -42,11 +43,17 @@ const SignUp = () => {
                 varifyEmail()
                     .then(() => {
 
-                        Swal.fire(
-                            'Good job!',
-                            'A varificition email has been send to your email !',
-                            'success'
-                        )
+                        toast('A varificition email has been send to your email !', {
+                            position: "top-center",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                        });
+
                         updateProfile(auth.currentUser, {
                             displayName: name, photoURL: photo
                         })
@@ -60,14 +67,33 @@ const SignUp = () => {
     const loginWithGoogle = () => {
         socialAccountLogin(GoogleProvider)
             .then(res => {
-                Swal.fire('login successful')
+                toast('Sign up successful', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             })
             .catch(error => console.log(error))
     }
     const loginWithGithub = () => {
         socialAccountLogin(GithubProvider)
             .then(res => {
-                Swal.fire('login successful')
+                toast('Sign up successful', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+                <ToastContainer />
             })
             .catch(error => console.error(error))
     }

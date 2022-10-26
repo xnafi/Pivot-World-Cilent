@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Switch } from '@headlessui/react'
 import { Link, NavLink } from 'react-router-dom'
-import Swal from 'sweetalert2'
+import { toast,ToastContainer } from 'react-toastify';
 import logo from '../assets/images/pivotLogo.png';
 import { AuthContext } from '../contex/AuthProvider';
 import { FaUserAlt } from 'react-icons/fa';
@@ -14,14 +14,22 @@ const Navbar = () => {
     const handleLogout = () => {
         logOut()
             .then(() => {
-                Swal.fire('logout successful')
+                toast('logout successful', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+               
             }).catch((error) => {
                 console.log(error);
             });
     }
-    console.log('====================================');
-    console.log(user);
-    console.log('====================================');
+
     return (
 
         <div className='sm:px-4 py-5 w-full md:px-14 absolute z-20 top-0 '>
@@ -101,6 +109,7 @@ const Navbar = () => {
                             >
                                 Logout
                             </NavLink>
+                            <ToastContainer/>
                         </li> :
                             <>
                                 <li>
