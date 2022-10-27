@@ -2,7 +2,7 @@ import React from 'react'
 
 const Blog = () => {
     return (
-        <div className="dark:bg-gray-900 min-h-screen h-screen w-full px-8 bg-center bgFaq bg-fixed bg-cover bg-no-repeat flex flex-col justify-center items-center" >
+        <div className="dark:bg-gray-900 min-h-screen w-full px-8 bg-center bgFaq bg-fixed bg-cover bg-no-repeat flex flex-col justify-center items-center">
             <section className="dark:bg-gray-800 dark:text-gray-100 md:w-3/4 w-screen h-full">
                 <div className="container flex flex-col justify-center p-4 mx-auto md:p-8 mt-24">
                     <h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">Blog</h2>

@@ -5,7 +5,7 @@ import Pdf from "react-to-pdf";
 const CourseDetails = () => {
   const ref = React.createRef();
   const course = useLoaderData()
-  const { image, des, name, courseDetail, duration } = course
+  const { image, des, name, courseDetail, duration, id } = course
 
   return (
     <div className="bg-white dark:bg-gray-900 h-full md:h-full w-full px-8 bgCourse bg-center bg-fixed bg-cover bg-no-repeat flex flex-col md:flex-row justify-center items-center" >
@@ -28,8 +28,9 @@ const CourseDetails = () => {
             {({ toPdf }) =>
               <button className="btn btn-outline btn-warning my-4 px-10" onClick={toPdf}>Download</button>}
           </Pdf>
+          <Link to={`/purchase/${id}`} className="btn btn-outline btn-info text-md">Get premium access</Link>
 
-          <Link to='/courses' className="btn btn-outline btn-warning my-4 px-10">Courses</Link>
+          {/* <Link to='/courses' className="btn btn-outline btn-warning my-4 px-10">Courses</Link> */}
         </div>
 
       </div>

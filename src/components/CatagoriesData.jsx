@@ -15,9 +15,8 @@ const CatagoriesData = ({ course }) => {
                     </a>
                     <p className="leading-snug dark:text-gray-400">{`${course.des.slice(0, 150)}`}...</p>
                 </div>
-                <div className="flex justify-between pb-4 border-bottom">
+                <div className="flex justify-end pb-4 border-bottom">
                     <Link to={`/courses/details/${course.id}`} className="btn btn-outline btn-primary">Details</Link>
-                    <Link to={`/purchase/${course.id}`} className="btn btn-outline btn-info text-md">Get premium access</Link>
                 </div>
             </div>
         </div>
